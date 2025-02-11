@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <table border="1" width="100%">
+            <tr>
+                <th>Logo</th>
+                <th colspan="5">Web Site Name</th>
+            </tr>
+            <tr>
+                <td><a href="home.html">Home</a></td>
+                <td><a href="login.html">Login</a></td>
+                <td><a href="registration.html">Registration</a></td>
+                <td><a href="catalogue.html">Catalogue</a></td>
+                <td><a href="cart.html">Cart</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Login</h2>
+    <form onsubmit="redirectToHome(event)">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function redirectToHome(event) {
+            event.preventDefault();  // Prevents the form from actually submitting
+            alert("Login Successful! Redirecting to Home...");
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>

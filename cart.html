@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || {};
+            let cartTable = document.getElementById("cartTable");
+            let total = 0;
+            cartTable.innerHTML = "";
+
+            for (let book in cart) {
+                let row = `<tr>
+                    <td>${book}</td>
+                    <td>₹${cart[book].price}</td>
+                    <td>${cart[book].quantity}</td>
+                    <td>₹${cart[book].price * cart[book].quantity}</td>
+                </tr>`;
+                cartTable.innerHTML += row;
+                total += cart[book].price * cart[book].quantity;
+            }
+
+            document.getElementById("totalAmount").innerText = "Total: ₹" + total;
+        }
+
+        function clearCart() {
+            localStorage.removeItem("cart");
+            alert("Cart Cleared!");
+            window.location.reload();
+        }
+    </script>
+</head>
+<body onload="loadCart()">
+    <div class="header">
+        <table border="1" width="100%">
+            <tr>
+                <th>Logo</th>
+                <th colspan="5">Web Site Name</th>
+            </tr>
+            <tr>
+                <td><a href="home.html">Home</a></td>
+                <td><a href="login.html">Login</a></td>
+                <td><a href="registration.html">Registration</a></td>
+                <td><a href="catalogue.html">Catalogue</a></td>
+                <td><a href="cart.html">Cart</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Your Cart</h2>
+    <table border="1" width="80%" align="center">
+        <tr>
+            <th>Book Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+        <tbody id="cartTable"></tbody>
+    </table>
+
+    <h3 id="totalAmount" align="center">Total: ₹0</h3>
+    <div align="center">
+        <button onclick="clearCart()">Clear Cart</button>
+    </div>
+</body>
+</html>

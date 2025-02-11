@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function addToCart(bookName, price) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || {};
+            if (cart[bookName]) {
+                cart[bookName].quantity += 1;
+            } else {
+                cart[bookName] = { price: price, quantity: 1 };
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(bookName + " added to cart!");
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <table border="1" width="100%">
+            <tr>
+                <th>Logo</th>
+                <th colspan="5">Web Site Name</th>
+            </tr>
+            <tr>
+                <td><a href="home.html">Home</a></td>
+                <td><a href="login.html">Login</a></td>
+                <td><a href="registration.html">Registration</a></td>
+                <td><a href="catalogue.html">Catalogue</a></td>
+                <td><a href="cart.html">Cart</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Book Catalogue</h2>
+    <table border="1" width="80%" align="center">
+        <tr>
+            <th>Book Image</th>
+            <th>Book Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+
+        <!-- CSE Books -->
+        <tr><td colspan="5" align="center"><b>CSE Books</b></td></tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/61O6K0yPmzL._AC_UF1000,1000_QL80_.jpg" alt="Introduction to Algorithms" width="100" height="150"></td>
+            <td>Introduction to Algorithms</td>
+            <td>CSE</td>
+            <td>₹800</td>
+            <td><button onclick="addToCart('Introduction to Algorithms', 800)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/81SwKCia7VL._AC_UF1000,1000_QL80_.jpg" alt="Operating System Concepts" width="100" height="150"></td>
+            <td>Operating System Concepts</td>
+            <td>CSE</td>
+            <td>₹750</td>
+            <td><button onclick="addToCart('Operating System Concepts', 750)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/71CJlku2I-L._UF1000,1000_QL80_.jpg" alt="Computer Networks" width="100" height="150"></td>
+            <td>Computer Networks</td>
+            <td>CSE</td>
+            <td>₹700</td>
+            <td><button onclick="addToCart('Computer Networks', 700)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/81B3Cv13cYL.jpg" alt="Database System Concepts" width="100" height="150"></td>
+            <td>Database System Concepts</td>
+            <td>CSE</td>
+            <td>₹850</td>
+            <td><button onclick="addToCart('Database System Concepts', 850)">Add to Cart</button></td>
+        </tr>
+
+        <!-- ECE Books -->
+        <tr><td colspan="5" align="center"><b>ECE Books</b></td></tr>
+        <tr>
+            <td><img src="https://www.schandpublishing.com/Handler/ImageHandler.ashx?width=314&height=404&imgpath=~/Upload/BookImage/9789355015631.jpg" alt="Engineering Mathematics" width="100" height="150"></td>
+            <td>Engineering Mathematics</td>
+            <td>ECE</td>
+            <td>₹500</td>
+            <td><button onclick="addToCart('Engineering Mathematics', 500)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/81cjFYtX2OL._AC_UF1000,1000_QL80_.jpg" alt="Digital Logic Design" width="100" height="150"></td>
+            <td>Digital Logic Design</td>
+            <td>ECE</td>
+            <td>₹600</td>
+            <td><button onclick="addToCart('Digital Logic Design', 600)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/716+eE6TmPL._AC_UF1000,1000_QL80_.jpg" alt="Microprocessors and Interfacing" width="100" height="150"></td>
+            <td>Microprocessors and Interfacing</td>
+            <td>ECE</td>
+            <td>₹700</td>
+            <td><button onclick="addToCart('Microprocessors and Interfacing', 700)">Add to Cart</button></td>
+        </tr>
+
+        <!-- EEE Books -->
+        <tr><td colspan="5" align="center"><b>EEE Books</b></td></tr>
+        <tr>
+            <td><img src="https://rukminim2.flixcart.com/image/750/900/kjd6nww0-0/book/q/d/g/physics-for-engineering-original-imafyxkuv8hejck8.jpeg?q=20&crop=false" alt="Physics for Engineers" width="100" height="150"></td>
+            <td>Physics for Engineers</td>
+            <td>EEE</td>
+            <td>₹600</td>
+            <td><button onclick="addToCart('Physics for Engineers', 600)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/71x7M+99nsL._AC_UF1000,1000_QL80_.jpg" alt="Power Electronics" width="100" height="150"></td>
+            <td>Power Electronics</td>
+            <td>EEE</td>
+            <td>₹750</td>
+            <td><button onclick="addToCart('Power Electronics', 750)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/71LtBlJ3pLL._AC_UF1000,1000_QL80_.jpg" alt="Control Systems Engineering" width="100" height="150"></td>
+            <td>Control Systems Engineering</td>
+            <td>EEE</td>
+            <td>₹850</td>
+            <td><button onclick="addToCart('Control Systems Engineering', 850)">Add to Cart</button></td>
+        </tr>
+
+        <!-- Civil Books -->
+        <tr><td colspan="5" align="center"><b>Civil Engineering Books</b></td></tr>
+        <tr>
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Vvil191vbFucGcm7BHx1NpEOzFIPaukPjA&s" alt="Structural Analysis" width="100" height="150"></td>
+            <td>Structural Analysis</td>
+            <td>Civil</td>
+            <td>₹900</td>
+            <td><button onclick="addToCart('Structural Analysis', 900)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/81+pwZ83T5L._AC_UF1000,1000_QL80_.jpg" alt="Surveying and Levelling" width="100" height="150"></td>
+            <td>Surveying and Levelling</td>
+            <td>Civil</td>
+            <td>₹650</td>
+            <td><button onclick="addToCart('Surveying and Levelling', 650)">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/A1nyZvIpMLL._AC_UF1000,1000_QL80_.jpg" alt="Building Construction" width="100" height="150"></td>
+            <td>Building Construction</td>
+            <td>Civil</td>
+            <td>₹700</td>
+            <td><button onclick="addToCart('Building Construction', 700)">Add to Cart</button></td>
+        </tr>
+    </table>
+</body>
+</html>
